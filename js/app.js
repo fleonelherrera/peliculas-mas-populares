@@ -2,10 +2,10 @@ const cargarPeliculas = async () => {
 
     try {
 
-        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7259b0522d8ef15b8214df3c83c5c11e&language=es-MX&page=${pagina}`)
+        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7259b0522d8ef15b8214df3c83c5c11e&language=es-MX`)
 
         if (respuesta.status === 200) {
-            
+
             const datos = await respuesta.json()
 
             let peliculas = ''
