@@ -1,8 +1,30 @@
+let pagina = 1; // la primer pagina es la 1, no la 0
+
+const btnAnterior = document.querySelector('#btnAnterior')
+const btnSiguiente = document.querySelector('#btnSiguiente')
+
+btnSiguiente.addEventListener('click', () => {
+    // El maximo es de mil paginas
+    if (pagina < 1000) {
+        pagina += 1
+        cargarPeliculas()
+    }
+})
+
+btnAnterior.addEventListener('click', () => {
+    if (pagina > 1) {
+        pagina -= 1
+        cargarPeliculas()
+    }
+})
+
+
+
 const cargarPeliculas = async () => {
 
     try {
 
-        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7259b0522d8ef15b8214df3c83c5c11e`)
+        const respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7259b0522d8ef15b8214df3c83c5c11e&page=${pagina}`)
 
         if (respuesta.status === 200) {
 
